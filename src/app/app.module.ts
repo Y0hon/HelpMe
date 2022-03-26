@@ -9,10 +9,8 @@ import { AjouterThemeComponent } from './ajouter-theme/ajouter-theme.component';
 import {FormsModule} from "@angular/forms";
 import { RechercherThemeComponent } from './rechercher-theme/rechercher-theme.component';
 import {RouterModule, Routes} from "@angular/router";
-import { SplashComponent } from './splash/splash.component';
 
 const appRoutes: Routes = [
-  {path: 'splash', component: SplashComponent},
   {path: 'ajouterTheme', component: AjouterThemeComponent},
   {path: 'rechercherTheme', component: RechercherThemeComponent},
   {path: 'details/:id', component: DetailsThemeComponent}
@@ -25,8 +23,7 @@ const appRoutes: Routes = [
     DetailsStudentComponent,
     DetailsThemeComponent,
     AjouterThemeComponent,
-    RechercherThemeComponent,
-    SplashComponent
+    RechercherThemeComponent
   ],
   imports: [
     BrowserModule,
