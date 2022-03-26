@@ -1,8 +1,11 @@
 <div class="row">
-<div class="col-12 text-center"><img src="assets/Study.png" alt=""></div>
-<div class="col-12 text-center">Menu </div>
-<div class="col-12 text-center bottom-margin-50"><button class="btn"><img src="assets/AjouterTheme.png" alt="" width="100"
-    height="100"></button></div>
-<div class="col-12 text-center bottom-margin-50"><button class="btn btn-primary">Rechercher</button></div>
-<app-lister-themes></app-lister-themes>
+<div class="col-12 text-center"></div>
+<div class="col-6 text-center bottom-margin-50">
+  <button class="btn" routerLink="ajouterTheme"><img src="assets/AjouterTheme.png" alt="" width="100"
+    height="100"></button>
+</div>
+<div class="col-6 text-center top-padding-7"><button class="btn" routerLink="rechercherTheme"><img src="assets/Rechercher.png" alt="" width="90"
+  height="90"></button></div>
+  <router-outlet></router-outlet>
+  <app-lister-themes></app-lister-themes>
 </div>

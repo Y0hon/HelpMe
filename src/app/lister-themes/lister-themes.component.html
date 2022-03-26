@@ -1,1 +1,20 @@
-<p>lister-themes works!</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+  <th class="col">#</th>
+  <th class="col">Titre</th>
+  <th class="col">Date</th>
+  <th class="col">Description</th>
+  <th class="col text-center">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let theme of this.listeThemes; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{theme.title}}</td>
+    <td>{{theme.date}}</td>
+    <td>{{theme.description}}</td>
+    <td class="text-center"><img src="assets/Details.ico" height="30" width="30"></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<div class="form-group row bg-secondary bg-opacity-25">
+  <h1 class="col-12 align-content-start bottom-padding-8 text-center">Rechercher :</h1>
+  <div class="col-1"></div>
+  <label for="Titre" class="col-1 col-form-label">Titre:</label>
+  <div class="col-2">
+    <input type="text" class="form-control" id="Titre" [(ngModel)]="titre" >
+  </div>
+  <div class="col-2"></div>
+  <label for="Description" class="col-1 col-form-label">Description:</label>
+  <div class="col-4">
+    <input type="text" class="form-control" id="Description"  [(ngModel)]="description">
+  </div>
+</div>
+Test recherche:
+<pre>{{titre | json}}</pre>
+<pre>{{description | json}}</pre>
