@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Theme} from "../Theme";
 import {ApiHelpMeBrokerService} from "../api-help-me-broker.service";
+import {Student} from "../Student";
 
 @Component({
   selector: 'app-lister-themes',
@@ -11,14 +12,40 @@ import {ApiHelpMeBrokerService} from "../api-help-me-broker.service";
 
 export class ListerThemesComponent implements OnInit {
   listeThemes: Theme[] = [];
+  titreRecherche: string = "";
+  description: string ="";
+  motCleRecherche: string = "";
+  trouve: boolean = false;
   constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService) {
 
   }
   ngOnInit(): void {
     var themetest = new Theme();
+    var studentTest = new Student();
+    var studentTest2 = new Student();
+    var studentTest3 = new Student();
+    var studentTest4 = new Student();
+    var studentTest5 = new Student();
     themetest._title="titre";
     themetest._description="description";
+    studentTest._city="Toulouse";
+    studentTest._firstName="Yohan";
+    studentTest._lastName="Lussiez";
+    studentTest._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
+    studentTest2._city="Montpellier";
+    studentTest2._firstName="Bernard";
+    studentTest2._lastName="Lussiez";
+    studentTest2._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
+    studentTest3._city="Bordeaux";
+    studentTest3._firstName="Bruno";
+    studentTest3._lastName="Lussiez";
+    studentTest3._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
+    this.apiHelpMeBrokerService.addStudent(studentTest);
+    this.apiHelpMeBrokerService.addStudent(studentTest2);
+    this.apiHelpMeBrokerService.addStudent(studentTest3);
     this.apiHelpMeBrokerService.addTheme(themetest);
+    this.apiHelpMeBrokerService.addKeyWord(themetest._idTheme,"BD");
+    this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest._idStudent);
     this.apiHelpMeBrokerService.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
     /*const t1 = new Theme();
     t1._title="Normalisation et mise en oeuvre de bases de données";
@@ -42,4 +69,37 @@ export class ListerThemesComponent implements OnInit {
     this.listeThemes.push(t5);*/
   }
 
+
+  chercherTitre() {
+    if(this.titreRecherche!=""){
+      this.listeThemes= this.listeThemes.filter(res => {
+        return res._title.toLocaleLowerCase().match(this.titreRecherche.toLocaleLowerCase());
+      })
+    }
+    else {
+        this.ngOnInit();
+    }
+  }
+
+  chercherMotCle() {
+    if(this.motCleRecherche!=""){
+      this.listeThemes= this.listeThemes.filter(res => {
+            this.trouve=false;
+            for(let keyWord of res._keyWords){
+                if(!this.trouve && keyWord.toLocaleLowerCase().match(this.motCleRecherche.toLocaleLowerCase())){
+                  console.log("OUIIIIII");
+                  this.trouve=true;
+                }
+            }
+            if(this.trouve){
+              return res;
+            }
+            return;
+        }
+      )
+    }
+    else {
+      this.ngOnInit();
+    }
+  }
 }

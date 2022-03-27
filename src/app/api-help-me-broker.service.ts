@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Theme} from "./Theme";
 import {Observable} from "rxjs";
+import {Student} from "./Student";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,9 @@ export class ApiHelpMeBrokerService {
     return this.httpCLient.get<Theme[]>(this.url+"/theme");
   }
 
+
   public getTheme(idTheme: Observable<Theme>){
-    return this.httpCLient.get<Theme>(this.url+"/"+idTheme);
+    return this.httpCLient.get<Theme>(this.url+"/theme/"+idTheme);
   }
 
   public addTheme(theme: Theme){
@@ -24,5 +26,33 @@ export class ApiHelpMeBrokerService {
       (response ) => {console.log(response);}
       , (error) => {console.log('Erreur ajouter Thème');}
     )
+  }
+
+  public addKeyWord(_idTheme: string,_keyWord: string){
+    this.httpCLient.post<string>(this.url+"/addKeyWord",{_idTheme,_keyWord})
+      .subscribe(
+        (response ) => {console.log(response);}
+        , (error) => {console.log('Erreur ajouter mot-clé');}
+      )
+  }
+
+  public addRecommendation(_idTheme: string,_idStudent: string){
+    this.httpCLient.post<string>(this.url+"/addRecommendation",{_idTheme,_idStudent})
+      .subscribe(
+        (response ) => {console.log(response);}
+        , (error) => {console.log('Erreur ajouter recommandation');}
+      )
+  }
+
+  public getListeStudents() : Observable<Student[]> {
+    return this.httpCLient.get<Student[]>(this.url+"/student");
+  }
+
+  public addStudent(student: Student){
+    this.httpCLient.post<Student>(this.url+"/student",student)
+      .subscribe(
+        (response ) => {console.log(response);}
+        , (error) => {console.log('Erreur ajouter étudiant');}
+      )
   }
 }

@@ -7,14 +7,12 @@ import { DetailsStudentComponent } from './details-student/details-student.compo
 import { DetailsThemeComponent } from './details-theme/details-theme.component';
 import { AjouterThemeComponent } from './ajouter-theme/ajouter-theme.component';
 import {FormsModule} from "@angular/forms";
-import { RechercherThemeComponent } from './rechercher-theme/rechercher-theme.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {ApiHelpMeBrokerService} from "./api-help-me-broker.service";
 
 const appRoutes: Routes = [
   {path: 'ajouterTheme', component: AjouterThemeComponent},
-  {path: 'rechercherTheme', component: RechercherThemeComponent},
   {path: 'details/:id', component: DetailsThemeComponent}
 ];
 
@@ -24,8 +22,7 @@ const appRoutes: Routes = [
     ListerThemesComponent,
     DetailsStudentComponent,
     DetailsThemeComponent,
-    AjouterThemeComponent,
-    RechercherThemeComponent
+    AjouterThemeComponent
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,9 @@ export class Theme{
   _idTheme: string;
   _title: string;
   _description: string;
-  _keyWords = [];
+  _keyWords: string[] = [];
   _recommendations = new Map();
+  _top4 = [];
   _date: string;
   expanded: boolean;
 
@@ -13,6 +14,7 @@ export class Theme{
     this._title = "";
     this._description = "";
     this._keyWords = [];
+    this._top4 = [];
     this._recommendations = new Map();
     this.expanded=false;
     let today = new Date();

@@ -6,12 +6,12 @@ export class Student{
   _city: string;
 
 
-  constructor(lastName: string, firstName: string, city: string) {
+  constructor() {
     this._idStudent=new Date().getTime().toString();
-    this._lastName=lastName;
-    this._firstName=firstName;
-    this._city=city;
-    this._contact= firstName.toLowerCase() + "." + lastName.toLowerCase() + "@toulouse.miage.fr";
+    this._lastName="";
+    this._firstName="";
+    this._city="";
+    this._contact="";
   }
 
   getLastName() : string {
