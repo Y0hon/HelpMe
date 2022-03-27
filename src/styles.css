@@ -9,11 +9,23 @@
   padding-bottom: 8px;
 }
 
+.bottom-padding-12 {
+  padding-bottom: 12px;
+}
+
 .text-size-18{
   font-size: 18px;
 }
 
+.text-size-80{
+  font-size: 80px;
+}
+
 .top-padding-7{
   padding-top: 7px;
+}
+
+.rotateimg270 {
+  transform: rotate(270deg);
 }
 

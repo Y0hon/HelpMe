@@ -1,46 +1,48 @@
 export class Student{
-  lastName: string;
-  firstName: string;
-  contact: string;
-  city: string;
+  _idStudent: string;
+  _lastName: string;
+  _firstName: string;
+  _contact: string;
+  _city: string;
 
 
   constructor(lastName: string, firstName: string, city: string) {
-    this.lastName=lastName;
-    this.firstName=firstName;
-    this.city=city;
-    this.contact= firstName.toLowerCase() + "." + lastName.toLowerCase() + "@toulouse.miage.fr";
+    this._idStudent=new Date().getTime().toString();
+    this._lastName=lastName;
+    this._firstName=firstName;
+    this._city=city;
+    this._contact= firstName.toLowerCase() + "." + lastName.toLowerCase() + "@toulouse.miage.fr";
   }
 
   getLastName() : string {
-    return this.lastName;
+    return this._lastName;
   }
 
   setLastName(value: string) {
-    this.lastName = value;
+    this._lastName = value;
   }
 
   getFirstName() {
-    return this.firstName;
+    return this._firstName;
   }
 
   setFirstName(value: string) {
-    this.firstName = value;
+    this._firstName = value;
   }
 
   getContact() : string{
-    return this.contact;
+    return this._contact;
   }
 
   setContact(value: string) {
-    this.contact = value;
+    this._contact = value;
   }
 
   getCity() : string{
-    return this.city;
+    return this._city;
   }
 
   setCity(value:string) {
-    this.city = value;
+    this._city = value;
   }
 }

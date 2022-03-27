@@ -9,6 +9,8 @@ import { AjouterThemeComponent } from './ajouter-theme/ajouter-theme.component';
 import {FormsModule} from "@angular/forms";
 import { RechercherThemeComponent } from './rechercher-theme/rechercher-theme.component';
 import {RouterModule, Routes} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {ApiHelpMeBrokerService} from "./api-help-me-broker.service";
 
 const appRoutes: Routes = [
   {path: 'ajouterTheme', component: AjouterThemeComponent},
@@ -29,9 +31,10 @@ const appRoutes: Routes = [
     BrowserModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiHelpMeBrokerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
