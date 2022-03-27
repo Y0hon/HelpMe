@@ -10,10 +10,12 @@ import {FormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {ApiHelpMeBrokerService} from "./api-help-me-broker.service";
+import { AjouterStudentComponent } from './ajouter-student/ajouter-student.component';
 
 const appRoutes: Routes = [
   {path: 'ajouterTheme', component: AjouterThemeComponent},
-  {path: 'details/:id', component: DetailsThemeComponent}
+  {path: 'listerTheme', component: ListerThemesComponent},
+  {path: 'details/:idTheme', component: DetailsThemeComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     ListerThemesComponent,
     DetailsStudentComponent,
     DetailsThemeComponent,
-    AjouterThemeComponent
+    AjouterThemeComponent,
+    AjouterStudentComponent
   ],
   imports: [
     BrowserModule,

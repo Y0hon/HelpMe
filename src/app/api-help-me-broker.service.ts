@@ -16,7 +16,7 @@ export class ApiHelpMeBrokerService {
   }
 
 
-  public getTheme(idTheme: Observable<Theme>){
+  public getTheme(idTheme: string){
     return this.httpCLient.get<Theme>(this.url+"/theme/"+idTheme);
   }
 

@@ -12,7 +12,7 @@ export class AjouterThemeComponent implements OnInit {
 
   theme: Theme = new Theme();
   motCleRecherche: string = "";
-  constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService, private   listerThemesComponent: ListerThemesComponent) {
+  constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService) {
 
   }
   ngOnInit(): void {
@@ -20,7 +20,6 @@ export class AjouterThemeComponent implements OnInit {
 
   addTheme(){
     this.apiHelpMeBrokerService.addTheme(this.theme);
-    this.listerThemesComponent.ngOnInit();
   }
 
 }

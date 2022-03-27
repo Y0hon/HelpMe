@@ -19,20 +19,19 @@ Test recherche:
   <th class="col">#</th>
   <th class="col">Titre</th>
   <th class="col">Date</th>
-  <th class="col-4 text-center">Description</th>
-    <th class="col-2 text-center">Détails</th>
+  <th class="col-4 text-center">Description</th><th class="col-2 text-center">Détails</th>
   <th class="col-2 text-center">Informations supplémentaires</th>
   </tr>
   </thead>
   <tbody>
   <ng-container *ngFor="let theme of this.listeThemes; index as i">
-    <tr (click)="theme.expanded = !theme.expanded">
+    <tr >
       <td>{{i + 1}}</td>
       <td>{{theme._title}}</td>
       <td>{{theme._date}}</td>
       <td class="text-center">{{theme._description}}</td>
-      <td class="text-center"> {{ theme.expanded ? '' : ''}}<img src="assets/Details.png" height="30" width="30" > </td>
-      <td class="text-center"> {{ theme.expanded ? '' : ''}}<img src="assets/InfoSupp.ico" height="30" width="30" class="rotateimg270"> </td>
+      <td class="text-center" > {{ theme.expanded ? '' : ''}}<button class="btn" routerLink="../details/{{theme._idTheme}}"><img src="assets/Details.png" height="30" width="30" ></button></td>
+      <td class="text-center" (click)="theme.expanded = !theme.expanded"> {{ theme.expanded ? '' : ''}}<img src="assets/InfoSupp.ico" height="30" width="30" class="rotateimg270"> </td>
       <td>    <ng-container  *ngIf="theme.expanded">
         <div class="row bottom-padding-12 bg-secondary bg-opacity-25" *ngFor="let recommendation of theme._top4">
           <div >{{recommendation[0]}} {{recommendation[1]}} <img src="assets/like.png" height="20" width="20"></div>
