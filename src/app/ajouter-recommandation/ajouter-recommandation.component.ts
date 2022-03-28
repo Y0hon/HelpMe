@@ -25,15 +25,13 @@ export class AjouterRecommandationComponent implements OnInit {
     this.apiHelpMeBrokerService.getRecommendations(idTheme).subscribe((students ) => {this.listeStudentsRecommendations=students});
   }
 
-  addRecommendation() {
-
+  ajouterRecommandation(theme: Theme, student: Student) {
+    this.apiHelpMeBrokerService.addRecommendation(theme._idTheme,student._idStudent);
+    this.ngOnInit()
   }
 
-  ajouterRecommandation() {
-
-  }
-
-  retirerRecommandation() {
-
+  retirerRecommandation(theme: Theme, student: Student) {
+    this.apiHelpMeBrokerService.deleteRecommendation(theme._idTheme,student._idStudent);
+    this.ngOnInit()
   }
 }

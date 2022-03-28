@@ -20,8 +20,8 @@
         <td>{{student._lastName}}</td>
         <td class="text-center">{{student._contact}}</td>
         <td class="text-center" >{{student._likes}}</td>
-        <td class="text-center" ><button class="btn" (click)="ajouterRecommandation()"><img src="assets/like.png" height="30" width="30" ></button></td>
-        <td class="text-center" ><button class="btn" (click)="retirerRecommandation()"><img src="assets/dislike.png" height="30" width="30" ></button></td>
+        <td class="text-center" ><button class="btn" (click)="ajouterRecommandation(theme,student)"><img src="assets/like.png" height="30" width="30" ></button></td>
+        <td class="text-center" ><button class="btn" (click)="retirerRecommandation(theme,student)"><img src="assets/dislike.png" height="30" width="30" ></button></td>
       </tr>
 
     </ng-container>

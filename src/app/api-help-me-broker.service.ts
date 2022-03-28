@@ -20,6 +20,10 @@ export class ApiHelpMeBrokerService {
     return this.httpCLient.get<Theme>(this.url+"/theme/"+idTheme);
   }
 
+  public getStudent(idStudent: string){
+    return this.httpCLient.get<Student>(this.url+"/student/"+idStudent);
+  }
+
   public addTheme(theme: Theme){
     this.httpCLient.post<Theme>(this.url+"/theme",theme)
     .subscribe(
@@ -45,6 +49,14 @@ export class ApiHelpMeBrokerService {
       .subscribe(
         (response ) => {console.log(response);}
         , (error) => {console.log('Erreur ajouter recommandation');}
+      )
+  }
+
+  public deleteRecommendation(_idTheme: string,_idStudent: string){
+    this.httpCLient.post<string>(this.url+"/deleteRecommendation",{_idTheme,_idStudent})
+      .subscribe(
+        (response ) => {console.log(response);}
+        , (error) => {console.log('Erreur supprimer recommandation');}
       )
   }
 

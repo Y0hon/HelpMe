@@ -31,14 +31,17 @@ export class ListerThemesComponent implements OnInit {
     studentTest._city="Toulouse";
     studentTest._firstName="Yohan";
     studentTest._lastName="Lussiez";
+    studentTest._idStudent="1";
     studentTest._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
     studentTest2._city="Montpellier";
     studentTest2._firstName="Bernard";
     studentTest2._lastName="Lussiez";
+    studentTest2._idStudent="2";
     studentTest2._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
     studentTest3._city="Bordeaux";
     studentTest3._firstName="Bruno";
     studentTest3._lastName="Lussiez";
+    studentTest3._idStudent="3";
     studentTest3._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
     this.apiHelpMeBrokerService.addStudent(studentTest);
     this.apiHelpMeBrokerService.addStudent(studentTest2);
@@ -46,6 +49,8 @@ export class ListerThemesComponent implements OnInit {
     this.apiHelpMeBrokerService.addTheme(themetest);
     this.apiHelpMeBrokerService.addKeyWord(themetest._idTheme,"BD");
     this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest._idStudent);
+    this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest2._idStudent);
+    this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest3._idStudent);
     this.apiHelpMeBrokerService.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
     /*const t1 = new Theme();
     t1._title="Normalisation et mise en oeuvre de bases de données";
