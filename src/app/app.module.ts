@@ -18,6 +18,7 @@ const appRoutes: Routes = [
   {path: 'listerTheme', component: ListerThemesComponent},
   {path: 'ajouterRecommandation/:idTheme', component: AjouterRecommandationComponent},
   {path: 'details/:idTheme', component: DetailsThemeComponent},
+  {path: 'ajouterEtudiant', component: AjouterEtudiantComponent},
   {path: 'ajouterEtudiant', component: AjouterEtudiantComponent}
 ];
 

@@ -12,6 +12,7 @@ import {Student} from "../Student";
 
 export class ListerThemesComponent implements OnInit {
   listeThemes: Theme[] = [];
+  trieAscendant: boolean = false;
   titreRecherche: string = "";
   description: string ="";
   motCleRecherche: string = "";
@@ -103,6 +104,17 @@ export class ListerThemesComponent implements OnInit {
     }
     else {
       this.ngOnInit();
+    }
+  }
+
+  trierParTitre() {
+    if(!this.trieAscendant){
+      this.listeThemes.sort((themea, themeb) => themea._title.localeCompare(themeb._title));
+      this.trieAscendant=true;
+    }
+    else{
+      this.listeThemes.sort((themea, themeb) => themeb._title.localeCompare(themea._title));
+      this.trieAscendant=false;
     }
   }
 }

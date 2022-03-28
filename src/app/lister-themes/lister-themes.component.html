@@ -15,7 +15,7 @@
   <thead>
   <tr>
   <th class="col">#</th>
-  <th class="col">Titre</th>
+  <th class="col">Titre<button class="btn fw-bold" (click)="trierParTitre()"><img src="assets/trier.png" height="15" width="15"></button></th>
   <th class="col">Date</th>
   <th class="col-4 text-center">Description</th><th class="col-2 text-center">Détails</th>
   <th class="col-2 text-center">Informations supplémentaires</th>
@@ -28,7 +28,7 @@
       <td>{{theme._title}}</td>
       <td>{{theme._date}}</td>
       <td class="text-center">{{theme._description}}</td>
-      <td class="text-center" > {{ theme.expanded ? '' : ''}}<button class="btn" routerLink="../details/{{theme._idTheme}}"><img src="assets/Details.png" height="30" width="30" ></button></td>
+      <td class="text-center" > {{ theme.expanded ? '' : ''}}<button class="btn" routerLink="/details/{{theme._idTheme}}"><img src="assets/Details.png" height="30" width="30" ></button></td>
       <td class="text-center" (click)="theme.expanded = !theme.expanded"> {{ theme.expanded ? '' : ''}}<img src="assets/InfoSupp.ico" height="30" width="30" class="rotateimg270"> </td>
       <td>    <ng-container  *ngIf="theme.expanded">
         <div class="row bottom-padding-12 bg-secondary bg-opacity-25" *ngFor="let recommendation of theme._top4">
