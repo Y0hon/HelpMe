@@ -1,0 +1,20 @@
+<div class="col-12 text-center text-size-80 bottom-padding-12">Etudiants</div>
+<div class="form-group row bg-secondary bg-opacity-25">
+  <h1 class="col-12 align-content-start bottom-padding-8 text-center">Ajouter :</h1>
+  <label for="Nom" class="col-1 col-form-label">Nom :</label>
+  <div class="col-3">
+    <input type="text" class="form-control" id="Nom" [(ngModel)]="student._firstName">
+  </div>
+  <label for="Prenom" class="col-1 col-form-label">Prénom :</label>
+  <div class="col-3">
+    <input type="text" class="form-control text-center" id="Prenom" [(ngModel)]="student._lastName">
+  </div>
+  <label for="Ville" class="col-1 col-form-label text-center">Ville :</label>
+  <div class="col-2">
+    <input type="text" class="form-control" id="Ville" [(ngModel)]="student._city">
+  </div>
+  <div class="text-center top-padding-7 bottom-padding-12">
+    <button class="btn form-control" (click)="addStudent()" routerLink=".." ><img src="assets/Details.png" height="30" width="30" ></button>
+  </div>
+</div>
+

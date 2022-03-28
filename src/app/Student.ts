@@ -8,7 +8,7 @@ export class Student{
 
 
   constructor() {
-    this._idStudent=new Date().getTime().toString();
+    this._idStudent=this.uuid();
     this._lastName="";
     this._firstName="";
     this._city="";
@@ -55,4 +55,11 @@ export class Student{
   setCity(value:string) {
     this._city = value;
   }
+
+  uuid = () =>
+    "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+      var r = (Math.random() * 16) | 0,
+        v = c == "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
 }

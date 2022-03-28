@@ -34,4 +34,5 @@ export class AjouterRecommandationComponent implements OnInit {
     this.apiHelpMeBrokerService.deleteRecommendation(theme._idTheme,student._idStudent);
     this.ngOnInit()
   }
+
 }

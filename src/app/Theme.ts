@@ -10,7 +10,7 @@ export class Theme{
   expanded: boolean;
 
   constructor() {
-    this._idTheme=new Date().getTime().toString();
+    this._idTheme=this.uuid();
     this._title = "";
     this._description = "";
     this._keyWords = [];
@@ -24,4 +24,11 @@ export class Theme{
     this._date = dd + '/' + mm + '/' + yyyy;
   }
 
+
+   uuid = () =>
+    "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+      var r = (Math.random() * 16) | 0,
+        v = c == "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
 }

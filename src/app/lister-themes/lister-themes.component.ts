@@ -49,8 +49,6 @@ export class ListerThemesComponent implements OnInit {
     this.apiHelpMeBrokerService.addTheme(themetest);
     this.apiHelpMeBrokerService.addKeyWord(themetest._idTheme,"BD");
     this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest._idStudent);
-    this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest2._idStudent);
-    this.apiHelpMeBrokerService.addRecommendation(themetest._idTheme,studentTest3._idStudent);
     this.apiHelpMeBrokerService.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
     /*const t1 = new Theme();
     t1._title="Normalisation et mise en oeuvre de bases de données";
