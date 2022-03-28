@@ -1,0 +1,36 @@
+<div class="form-group row bg-secondary bg-opacity-25">
+  <h1 class="col-12 align-content-start bottom-padding-8 text-center">Ajouter recommandation :</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="col">#</th>
+      <th class="col-2">Prénom</th>
+      <th class="col-2">Nom</th>
+      <th class="col-2 text-center">Contact</th>
+      <th class="col-2 text-center">Recommandations</th>
+      <th class="col-2 text-center">Ajouter</th>
+      <th class="col-2 text-center">Retirer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let student of this.listeStudentsRecommendations; index as i">
+      <tr >
+        <td>{{i + 1}}</td>
+        <td>{{student._firstName}}</td>
+        <td>{{student._lastName}}</td>
+        <td class="text-center">{{student._contact}}</td>
+        <td class="text-center" >{{student._likes}}</td>
+        <td class="text-center" ><button class="btn" (click)="ajouterRecommandation()"><img src="assets/like.png" height="30" width="30" ></button></td>
+        <td class="text-center" ><button class="btn" (click)="retirerRecommandation()"><img src="assets/dislike.png" height="30" width="30" ></button></td>
+      </tr>
+
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+Test ajout:
+<pre>{{theme | json}}</pre>
+
+<!--
+{{listeRecommendations.get(student._idStudent)}}
+-->

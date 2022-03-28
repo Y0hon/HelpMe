@@ -36,6 +36,10 @@ export class ApiHelpMeBrokerService {
       )
   }
 
+  public getRecommendations(idTheme: string) : Observable<Student[]> {
+    return this.httpCLient.get<Student[]>(this.url+"/Recommendation/"+idTheme);
+  }
+
   public addRecommendation(_idTheme: string,_idStudent: string){
     this.httpCLient.post<string>(this.url+"/addRecommendation",{_idTheme,_idStudent})
       .subscribe(

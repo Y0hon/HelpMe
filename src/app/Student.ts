@@ -4,6 +4,7 @@ export class Student{
   _firstName: string;
   _contact: string;
   _city: string;
+  _likes: number;
 
 
   constructor() {
@@ -12,6 +13,7 @@ export class Student{
     this._firstName="";
     this._city="";
     this._contact="";
+    this._likes=0;
   }
 
   getLastName() : string {
@@ -40,6 +42,14 @@ export class Student{
 
   getCity() : string{
     return this._city;
+  }
+
+  getLikes() : number{
+    return this._likes
+  }
+
+  setLikes(value:number){
+    this._likes= value;
   }
 
   setCity(value:string) {

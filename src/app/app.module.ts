@@ -11,10 +11,12 @@ import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {ApiHelpMeBrokerService} from "./api-help-me-broker.service";
 import { AjouterStudentComponent } from './ajouter-student/ajouter-student.component';
+import { AjouterRecommandationComponent } from './ajouter-recommandation/ajouter-recommandation.component';
 
 const appRoutes: Routes = [
   {path: 'ajouterTheme', component: AjouterThemeComponent},
   {path: 'listerTheme', component: ListerThemesComponent},
+  {path: 'ajouterRecommandation/:idTheme', component: AjouterRecommandationComponent},
   {path: 'details/:idTheme', component: DetailsThemeComponent}
 ];
 
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     DetailsStudentComponent,
     DetailsThemeComponent,
     AjouterThemeComponent,
-    AjouterStudentComponent
+    AjouterStudentComponent,
+    AjouterRecommandationComponent
   ],
   imports: [
     BrowserModule,
