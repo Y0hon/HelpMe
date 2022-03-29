@@ -22,7 +22,7 @@ export class DetailsStudentComponent implements OnInit {
     this.service.getStudent(idStudent).subscribe((studentID ) => {this.student=studentID});
     this.service.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
     for (let t in this.listeThemes){
-      this.service.getNote(t, this.student._idStudent).subscribe((note) => {this.notes.concat(note)})
+      this.service.getNote(t, this.student._idStudent).subscribe((note: number) => {this.notes.concat(note)})
     }
   }
 

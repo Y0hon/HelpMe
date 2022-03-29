@@ -85,13 +85,15 @@ export class ApiHelpMeBrokerService {
       });
   }
 
-  public getNote(t: Theme, idStudent: string) {
+  public getNote(t: Theme, idStudent: string) : number {
     let tabS: Student[]=[];
+    let s = new Student();
     this.getRecommendations(t._idTheme).subscribe((listeE) => {tabS = listeE})
-    for (Student s in tabS){
-      if (s.getId() == idStudent){
+    tabS.forEach(s =>{
+      if (s.id == idStudent){
         return s.getLikes();
       }
-    }
+    })
+    return -1;
   }
 }

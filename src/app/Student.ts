@@ -62,4 +62,8 @@ export class Student{
         v = c == "x" ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
+
+  public get id(){
+    return this._idStudent;
+  }
 }
