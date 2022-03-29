@@ -7,6 +7,7 @@ export class Theme{
   _recommendations = new Map();
   _top4 = [];
   _date: string;
+  _likes: number;
   expanded: boolean;
 
   constructor() {
@@ -17,6 +18,7 @@ export class Theme{
     this._top4 = [];
     this._recommendations = new Map();
     this.expanded=false;
+    this._likes=0;
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!

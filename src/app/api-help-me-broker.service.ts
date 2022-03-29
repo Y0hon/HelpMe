@@ -41,7 +41,11 @@ export class ApiHelpMeBrokerService {
   }
 
   public getRecommendations(idTheme: string) : Observable<Student[]> {
-    return this.httpCLient.get<Student[]>(this.url+"/Recommendation/"+idTheme);
+    return this.httpCLient.get<Student[]>(this.url+"/RecommendationTheme/"+idTheme);
+  }
+
+  public getRecommendationsStudent(idStudent: string) : Observable<Theme[]> {
+    return this.httpCLient.get<Theme[]>(this.url+"/RecommendationStudent/"+idStudent);
   }
 
   public addRecommendation(_idTheme: string,_idStudent: string){
@@ -72,20 +76,11 @@ export class ApiHelpMeBrokerService {
       )
   }
 
-  public supprStudent(id: string) {
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-      body: {id: id},
-    };
-    this.httpCLient.delete<Student>(this.url + "/student", options)
-      .subscribe((s) => {
-        console.log(s);
-      });
+  public deleteStudent(idStudent: string) {
+    this.httpCLient.post<Student>(this.url + "/deleteStudent", idStudent);
   }
 
-  public getNote(t: Theme, idStudent: string) : number {
+/*  public getNote(t: Theme, idStudent: string) : number {
     let tabS: Student[]=[];
     let s = new Student();
     this.getRecommendations(t._idTheme).subscribe((listeE) => {tabS = listeE})
@@ -95,5 +90,5 @@ export class ApiHelpMeBrokerService {
       }
     })
     return -1;
-  }
+  }*/
 }

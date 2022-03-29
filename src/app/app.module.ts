@@ -17,9 +17,9 @@ const appRoutes: Routes = [
   {path: 'ajouterTheme', component: AjouterThemeComponent},
   {path: 'listerTheme', component: ListerThemesComponent},
   {path: 'ajouterRecommandation/:idTheme', component: AjouterRecommandationComponent},
-  {path: 'details/:idTheme', component: DetailsThemeComponent},
+  {path: 'detailsTheme/:idTheme', component: DetailsThemeComponent},
   {path: 'ajouterEtudiant', component: AjouterEtudiantComponent},
-  {path: 'ajouterEtudiant', component: AjouterEtudiantComponent}
+  {path: 'detailsStudent/:idStudent', component: DetailsStudentComponent}
 ];
 
 @NgModule({

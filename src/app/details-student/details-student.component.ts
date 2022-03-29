@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Student} from "../Student";
 import {ApiHelpMeBrokerService} from "../api-help-me-broker.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Theme} from "../Theme";
 import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-details-student',
@@ -12,22 +13,23 @@ import {Observable} from "rxjs";
 })
 export class DetailsStudentComponent implements OnInit {
   student : Student = new Student();
+  idStudent: string = "";
   listeThemes: Theme[]=[];
   notes: number[]=[];
 
-  constructor(private service : ApiHelpMeBrokerService, private routeactive: ActivatedRoute) { }
+  constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService,
+              private httpClient: HttpClient,
+              private router: Router,
+              private routeactive: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let idStudent= this.routeactive.snapshot.params['idStudent'];
-    this.service.getStudent(idStudent).subscribe((studentID ) => {this.student=studentID});
-    this.service.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
-    for (let t in this.listeThemes){
-      this.service.getNote(t, this.student._idStudent).subscribe((note: number) => {this.notes.concat(note)})
-    }
+    this.idStudent= this.routeactive.snapshot.params['idStudent'];
+    this.apiHelpMeBrokerService.getStudent(this.idStudent).subscribe((student ) => {this.student=student});
+    this.apiHelpMeBrokerService.getRecommendationsStudent(this.idStudent).subscribe((themes ) => {this.listeThemes=themes});
   }
 
-  public supprStudent(): void {
-    this.service.supprStudent(this.student._idStudent);
+  public deleteStudent(): void {
+    this.apiHelpMeBrokerService.deleteStudent(this.student._idStudent);
   }
 
 }
