@@ -21,41 +21,6 @@ export class ListerThemesComponent implements OnInit {
 
   }
   ngOnInit(): void {
-      var themetest = new Theme();
-      var themetest2 = new Theme();
-      var themetest3 = new Theme();
-      var studentTest = new Student();
-      var studentTest2 = new Student();
-      var studentTest3 = new Student();
-      var studentTest4 = new Student();
-      var studentTest5 = new Student();
-      themetest._title="Applications Web 2.0";
-      themetest._description="Maîtriser les frameworks Angular et Express pour perfectionner ses compétences en développement";
-      themetest2._title="Conception Web";
-      themetest2._description="Apprendre les bases du web HTTP, CSS et JS";
-      themetest3._title="Applications objets concurrentes";
-      themetest3._description="Initiation au couplage faible et au multithreading";
-      studentTest._city="Toulouse";
-      studentTest._firstName="Matthew";
-      studentTest._lastName="Hoang";
-      studentTest._idStudent="1";
-      studentTest._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
-      studentTest2._city="Montpellier";
-      studentTest2._firstName="Arthur";
-      studentTest2._lastName="Etaix";
-      studentTest2._idStudent="2";
-      studentTest2._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
-      studentTest3._city="Bordeaux";
-      studentTest3._firstName="Raphael";
-      studentTest3._lastName="Vignon";
-      studentTest3._idStudent="3";
-      studentTest3._contact=studentTest._firstName.toLowerCase() + "." + studentTest._lastName.toLowerCase() + "@toulouse.miage.fr";
-      this.apiHelpMeBrokerService.addStudent(studentTest);
-      this.apiHelpMeBrokerService.addStudent(studentTest2);
-      this.apiHelpMeBrokerService.addStudent(studentTest3);
-      this.apiHelpMeBrokerService.addTheme(themetest);
-      this.apiHelpMeBrokerService.addTheme(themetest2);
-      this.apiHelpMeBrokerService.addTheme(themetest3);
       this.apiHelpMeBrokerService.getListeThemes().subscribe((themes ) => {this.listeThemes=themes});
     /*const t1 = new Theme();
     t1._title="Normalisation et mise en oeuvre de bases de données";

@@ -36,7 +36,9 @@
         </div>
         <div class="row">
           <div class=" bg-secondary bg-opacity-25" >Mots-clés :
-            <div >{{theme._keyWords[0]}}</div>
+            <ng-container *ngFor="let keyWord of theme._keyWords">
+            <div >{{keyWord}}</div>
+            </ng-container>
           </div>
         </div>
       </ng-container></td>
