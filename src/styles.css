@@ -27,6 +27,10 @@
   padding-top: 7px;
 }
 
+.top-padding-20{
+  padding-top: 20px;
+}
+
 .rotateimg270 {
   transform: rotate(270deg);
 }

@@ -1,19 +1,30 @@
-
-<div class="container">
-
-  <div class="row">
-    <button id="BtnPoubelle" class="col-1 offset-4" (click)="deleteStudent()">🚮</button>
+<div class="col-12 text-center text-size-80 bottom-padding-12">Etudiants</div>
+<div class="form-group row bg-secondary bg-opacity-25 top-padding-20">
+    <label for="Nom" class="col-1 col-form-label text-center">Nom :</label>
+    <div class="col-3">
+      <input type="text" class="form-control" id="Nom" [(ngModel)]="student._lastName">
+    </div>
+  <div class="col-2"></div>
+    <label for="Prenom" class="col-1 col-form-label text-center">Prénom :</label>
+    <div class="col-3 bottom-padding-12">
+      <input type="text" class="form-control text-center" id="Prenom" [(ngModel)]="student._firstName">
+    </div>
+  <div class="col-2"></div>
+    <label for="Ville" class="col-1 col-form-label text-center top-padding-20">Ville :</label>
+    <div class="col-2">
+      <input type="text" class="form-control" id="Ville" [(ngModel)]="student._city">
+    </div>
+  <div class="col-3"></div>
+  <label for="Contact" class="col-1 col-form-label text-center top-padding-20">Contact :</label>
+  <div class="col-3">
+    <input type="text" class="form-control" id="Contact" [(ngModel)]="student._contact">
+  </div>
+    <div class="text-center top-padding-7 bottom-padding-12">
+      <button class="btn form-control" (click)="editStudent()" ><img src="assets/Details.png" height="30" width="30" ></button>
+    </div>
   </div>
 
-  <div class="row my-2">
-    <label class="offset-1 col-2">{{student._lastName}}</label>
-    <label class="offset-1 col-2">{{student._firstName}}</label>
-  </div>
 
-  <div class="row my-1">
-    <label class="offset-1 col-3">{{student._contact}}</label>
-    <label class="offset-5 col-2">{{student._city}}</label>
-  </div>
 
   <table class="table table-striped">
     <thead>

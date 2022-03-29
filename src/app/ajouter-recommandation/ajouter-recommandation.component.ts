@@ -12,6 +12,9 @@ import {Student} from "../Student";
 })
 export class AjouterRecommandationComponent implements OnInit {
   theme: Theme = new Theme();
+  nomRecherche: string = "";
+  prenomRecherche: string ="";
+  trieAscendant: boolean = false;
   listeStudentsRecommendations: Student[] = [];
 
   constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService,
@@ -33,6 +36,39 @@ export class AjouterRecommandationComponent implements OnInit {
   retirerRecommandation(theme: Theme, student: Student) {
     this.apiHelpMeBrokerService.deleteRecommendation(theme._idTheme,student._idStudent);
     this.ngOnInit()
+  }
+
+  chercherNom() {
+    if(this.nomRecherche!=""){
+      this.listeStudentsRecommendations= this.listeStudentsRecommendations.filter(res => {
+        return res._lastName.toLocaleLowerCase().match(this.nomRecherche.toLocaleLowerCase());
+      })
+    }
+    else {
+      this.ngOnInit();
+    }
+  }
+
+  chercherPrenom() {
+    if(this.prenomRecherche!=""){
+      this.listeStudentsRecommendations= this.listeStudentsRecommendations.filter(res => {
+        return res._firstName.toLocaleLowerCase().match(this.prenomRecherche.toLocaleLowerCase());
+      })
+    }
+    else {
+      this.ngOnInit();
+    }
+  }
+
+  trierParPrenom() {
+    if(!this.trieAscendant){
+      this.listeStudentsRecommendations.sort((themea, themeb) => themea._firstName.localeCompare(themeb._firstName));
+      this.trieAscendant=true;
+    }
+    else{
+      this.listeStudentsRecommendations.sort((themea, themeb) => themeb._firstName.localeCompare(themea._firstName));
+      this.trieAscendant=false;
+    }
   }
 
 }

@@ -3,12 +3,18 @@
   <div><button class="btn" routerLink="/detailsTheme/{{theme._idTheme}}"><img src="assets/Retour.png" height="50" width="50" ></button>
   </div>
   <h1 class="col-12 align-content-start bottom-padding-8 text-center">Ajouter recommandation :</h1>
+  <div class="form-group has-search row col-12">
+    <div class="col-1"></div>
+    <div class="col-4 "><input type="text" class="form-control" placeholder="Rechercher nom" id="Nom" [(ngModel)]="nomRecherche" (input)="chercherNom()" ></div>
+    <div class="col-2"></div>
+    <div class="col-4"><input type="text" class="form-control" placeholder="Rechercher prenom" id="Prenom" [(ngModel)]="prenomRecherche" (input)="chercherPrenom()" ></div>
+  </div>
   <table class="table table-striped">
     <thead>
     <tr>
       <th class="col">#</th>
-      <th class="col-2">Prénom</th>
       <th class="col-2">Nom</th>
+      <th class="col-2">Prénom<button class="btn fw-bold" (click)="trierParPrenom()"><img src="assets/trier.png" height="15" width="15"></button></th>
       <th class="col-2 text-center">Contact</th>
       <th class="col-2 text-center">Recommandations</th>
       <th class="col-2 text-center">Ajouter</th>
@@ -19,8 +25,8 @@
     <ng-container *ngFor="let student of this.listeStudentsRecommendations; index as i">
       <tr >
         <td><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{i + 1}}</button></td>
-        <td>{{student._firstName}}</td>
         <td>{{student._lastName}}</td>
+        <td>{{student._firstName}}</td>
         <td class="text-center">{{student._contact}}</td>
         <td class="text-center" >{{student._likes}}</td>
         <td class="text-center" ><button class="btn" (click)="ajouterRecommandation(theme,student)"><img src="assets/like.png" height="30" width="30" ></button></td>

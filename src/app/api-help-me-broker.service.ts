@@ -76,8 +76,18 @@ export class ApiHelpMeBrokerService {
       )
   }
 
-  public deleteStudent(idStudent: string) {
-    this.httpCLient.post<Student>(this.url + "/deleteStudent", idStudent);
+  public deleteStudent(student: Student) {
+    this.httpCLient.post<Student>(this.url + "/deleteStudent", student).subscribe(
+      (response ) => {console.log(response);}
+      , (error) => {console.log('Erreur supprimer étudiant');}
+    );
+  }
+
+  public editStudent(student: Student){
+    this.httpCLient.post<Student>(this.url + "/editStudent", student).subscribe(
+      (response ) => {console.log(response);}
+      , (error) => {console.log('Erreur modifier étudiant');}
+    );
   }
 
 /*  public getNote(t: Theme, idStudent: string) : number {

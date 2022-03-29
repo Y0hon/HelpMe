@@ -29,7 +29,14 @@ export class DetailsStudentComponent implements OnInit {
   }
 
   public deleteStudent(): void {
-    this.apiHelpMeBrokerService.deleteStudent(this.student._idStudent);
+    this.apiHelpMeBrokerService.deleteStudent(this.student);
   }
 
+  editStudent() {
+    this.apiHelpMeBrokerService.editStudent(this.student);
+  }
+
+  addStudent() {
+    this.apiHelpMeBrokerService.addStudent(this.student);
+  }
 }
