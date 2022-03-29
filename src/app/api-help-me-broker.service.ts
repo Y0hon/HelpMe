@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Theme} from "./Theme";
 import {Observable} from "rxjs";
 import {Student} from "./Student";
@@ -70,5 +70,28 @@ export class ApiHelpMeBrokerService {
         (response ) => {console.log(response);}
         , (error) => {console.log('Erreur ajouter étudiant');}
       )
+  }
+
+  public supprStudent(id: string) {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {id: id},
+    };
+    this.httpCLient.delete<Student>(this.url + "/student", options)
+      .subscribe((s) => {
+        console.log(s);
+      });
+  }
+
+  public getNote(t: Theme, idStudent: string) {
+    let tabS: Student[]=[];
+    this.getRecommendations(t._idTheme).subscribe((listeE) => {tabS = listeE})
+    for (Student s in tabS){
+      if (s.getId() == idStudent){
+        return s.getLikes();
+      }
+    }
   }
 }
