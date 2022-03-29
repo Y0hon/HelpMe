@@ -14,6 +14,7 @@ export class DetailsThemeComponent implements OnInit {
   theme: Theme = new Theme();
   prenomRecherche: string = "";
   nomRecherche: string = "";
+  _keyWord: string = "";
 
   constructor(private apiHelpMeBrokerService: ApiHelpMeBrokerService,
               private httpClient: HttpClient,
@@ -25,11 +26,13 @@ export class DetailsThemeComponent implements OnInit {
     this.apiHelpMeBrokerService.getTheme(idTheme).subscribe((themeID ) => {this.theme=themeID});
   }
 
-  chercherPrenom() {
 
+  editTheme() {
+    this.apiHelpMeBrokerService.editTheme(this.theme);
   }
 
-  chercherNom() {
-
+  addKeyWord() {
+    this.apiHelpMeBrokerService.addKeyWord(this.theme._idTheme,this._keyWord);
+    this.ngOnInit()
   }
 }

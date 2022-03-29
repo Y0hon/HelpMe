@@ -11,6 +11,14 @@
   padding-bottom: 12px;
 }
 
+.bottom-padding-25 {
+  padding-bottom: 25px;
+}
+
+.bottom-padding-80 {
+  padding-bottom: 80px;
+}
+
 .text-size-18{
   font-size: 18px;
 }

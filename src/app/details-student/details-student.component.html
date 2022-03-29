@@ -20,7 +20,7 @@
     <input type="text" class="form-control" id="Contact" [(ngModel)]="student._contact">
   </div>
     <div class="text-center top-padding-7 bottom-padding-12">
-      <button class="btn form-control" (click)="editStudent()" ><img src="assets/Details.png" height="30" width="30" ></button>
+      <button class="btn form-control" (click)="editStudent()" ><img src="assets/edit.png" height="80" width="80" ></button>
     </div>
   </div>
 
@@ -39,7 +39,7 @@
     <ng-container *ngFor="let theme of this.listeThemes; index as i">
       <tr >
         <td class="text-center">{{i + 1}}</td>
-        <td class="text-center">{{theme._title}}</td>
+        <td class="text-center"><button class="btn" routerLink="/detailsTheme/{{theme._idTheme}}">{{theme._title}}</button></td>
         <td class="text-center">{{theme._description}}</td>
         <td class="text-center">{{theme._likes}} <img src="assets/like.png" height="30" width="30" ></td>
       </tr>

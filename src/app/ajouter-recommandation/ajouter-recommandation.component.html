@@ -2,7 +2,8 @@
 <div class="form-group row bg-secondary bg-opacity-25">
   <div><button class="btn" routerLink="/detailsTheme/{{theme._idTheme}}"><img src="assets/Retour.png" height="50" width="50" ></button>
   </div>
-  <h1 class="col-12 align-content-start bottom-padding-8 text-center">Ajouter recommandation :</h1>
+  <div class="text-size-60 text-center bottom-padding-80">{{theme._title}}</div>
+  <h1 class="col-12 align-content-start bottom-padding-25 text-center">Ajouter recommandation :</h1>
   <div class="form-group has-search row col-12">
     <div class="col-1"></div>
     <div class="col-4 "><input type="text" class="form-control" placeholder="Rechercher nom" id="Nom" [(ngModel)]="nomRecherche" (input)="chercherNom()" ></div>
@@ -25,10 +26,10 @@
     <ng-container *ngFor="let student of this.listeStudentsRecommendations; index as i">
       <tr >
         <td><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{i + 1}}</button></td>
-        <td>{{student._lastName}}</td>
-        <td>{{student._firstName}}</td>
-        <td class="text-center">{{student._contact}}</td>
-        <td class="text-center" >{{student._likes}}</td>
+        <td><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{student._lastName}}</button></td>
+        <td><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{student._firstName}}</button></td>
+        <td class="text-center"><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{student._contact}}</button></td>
+        <td class="text-center" ><button class="btn" routerLink="/detailsStudent/{{student._idStudent}}">{{student._likes}}</button></td>
         <td class="text-center" ><button class="btn" (click)="ajouterRecommandation(theme,student)"><img src="assets/like.png" height="30" width="30" ></button></td>
         <td class="text-center" ><button class="btn" (click)="retirerRecommandation(theme,student)"><img src="assets/dislike.png" height="30" width="30" ></button></td>
       </tr>
@@ -37,8 +38,6 @@
     </tbody>
   </table>
 </div>
-Test ajout:
-<pre>{{theme | json}}</pre>
 
 <!--
 {{listeRecommendations.get(student._idStudent)}}

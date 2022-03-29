@@ -90,6 +90,13 @@ export class ApiHelpMeBrokerService {
     );
   }
 
+  public editTheme(theme: Theme){
+    this.httpCLient.post<Theme>(this.url + "/editTheme", theme).subscribe(
+      (response ) => {console.log(response);}
+      , (error) => {console.log('Erreur modifier thème');}
+    );
+  }
+
 /*  public getNote(t: Theme, idStudent: string) : number {
     let tabS: Student[]=[];
     let s = new Student();

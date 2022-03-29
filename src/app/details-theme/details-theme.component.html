@@ -1,9 +1,42 @@
 <div class="col-12 text-center text-size-80 bottom-padding-12">Thèmes</div>
 <div class="col-12 bg-secondary bg-opacity-25">
 <div class="bottom-padding-12">
-  <div class="text-size-60 text-center">{{theme._title}}</div>
-  <div class="text-center">
-    <button class="btn col-12" routerLink="/ajouterRecommandation/{{theme._idTheme}}"><img src="assets/ajouterRecommandation.png" height="100" width="100"></button>
+  <div><button class="btn" routerLink="/listerTheme"><img src="assets/Retour.png" height="50" width="50" ></button>
+    <div class="text-size-60 text-center">{{theme._title}}</div>
+  <div class="form-group row top-padding-20">
+  <label for="Titre" class="col-1 col-form-label text-center">Titre:</label>
+  <div class="col-3">
+    <input type="text" class="form-control" id="Titre" [(ngModel)]="theme._title">
+  </div>
+  <div class="col-2"></div>
+  <label for="Description" class="col-1 col-form-label text-center">Description:</label>
+  <div class="col-4 bottom-padding-12">
+    <input type="text" class="form-control text-center" id="Description" [(ngModel)]="theme._description">
+  </div>
+  <div class="col-1"></div>
+  <label for="Date" class="col-1 col-form-label text-center top-padding-20">Date:</label>
+  <div class="col-2">
+    <input type="text" class="form-control" id="Date" [(ngModel)]="theme._date">
+  </div>
+  <div class="col-3"></div>
+  <label for="KeyWord" class="col-1 col-form-label text-center top-padding-20">Mots-clés :</label>
+  <div class="col-4">
+    <input disabled type="" class="form-control" id="KeyWord" [(ngModel)]="theme._keyWords">
+  </div>
+  </div>
+  <div class="text-center top-padding-20">
+    <button class="btn form-control col-12 text-center" (click)="editTheme()" ><img src="assets/edit.png" height="80" width="80" ></button>
+  </div>
+  <div class="form-group row top-padding-20">
+    <div class="col-3"></div>
+    <label for="addKeyWord" class="col-2 col-form-label text-center ">Ajouter mot-clé :</label>
+      <input type="" class="form-control col-4 t" id="addKeyWord" [(ngModel)]="this._keyWord">
+    <button class="btn form-control text-center col-1" (click)="addKeyWord()" ><img src="assets/Details.png" height="30" width="30" ></button>
+  </div>
+  <div class="text-center top-padding-20">
+    <button class="btn col-12 " routerLink="/ajouterRecommandation/{{theme._idTheme}}"><img src="assets/ajouterRecommandation.png" height="100" width="100"></button>
+  </div>
 </div>
 </div>
-</div>
+
+
