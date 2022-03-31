@@ -77,28 +77,28 @@ export class ApiHelpMeBrokerService {
   }
 
   public deleteStudent(student: Student) {
-    this.httpCLient.post<Student>(this.url + "/deleteStudent", student).subscribe(
+    this.httpCLient.delete<Student>(this.url + "/Student/:idStudent").subscribe(
       (response ) => {console.log(response);}
       , (error) => {console.log('Erreur supprimer étudiant');}
     );
   }
 
   public deleteTheme(theme: Theme) {
-    this.httpCLient.post<Theme>(this.url + "/deleteTheme", theme).subscribe(
+    this.httpCLient.delete<Theme>(this.url + "/Theme/:idTheme").subscribe(
       (response ) => {console.log(response);}
       , (error) => {console.log('Erreur supprimer thème');}
     );
   }
 
   public editStudent(student: Student){
-    this.httpCLient.post<Student>(this.url + "/editStudent", student).subscribe(
+    this.httpCLient.put<Student>(this.url + "/Student", student).subscribe(
       (response ) => {console.log(response);}
       , (error) => {console.log('Erreur modifier étudiant');}
     );
   }
 
   public editTheme(theme: Theme){
-    this.httpCLient.post<Theme>(this.url + "/editTheme", theme).subscribe(
+    this.httpCLient.put<Theme>(this.url + "/Theme", theme).subscribe(
       (response ) => {console.log(response);}
       , (error) => {console.log('Erreur modifier thème');}
     );
