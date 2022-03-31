@@ -19,10 +19,9 @@
   <div class="col-3">
     <input type="text" class="form-control" id="Contact" [(ngModel)]="student._contact">
   </div>
-    <div class="text-center top-padding-7 bottom-padding-12">
-      <button class="btn form-control" (click)="editStudent()" ><img src="assets/edit.png" height="80" width="80" ></button>
-    </div>
-  </div>
+      <button class="btn form-control col-6" (click)="editStudent()" ><img src="assets/edit.png" height="80" width="80" ></button>
+  <button class="btn form-control col-6" (click)="deleteStudent()" ><img src="assets/trash.png" height="50" width="50" ></button>
+</div>
 
 
 
@@ -30,7 +29,7 @@
     <thead>
     <tr>
       <th class="col-1 text-center">#</th>
-      <th class="col-3 text-center">Titre</th>
+      <th class="col-3 text-center">Titre<button class="btn fw-bold" (click)="trierParTitre()"><img src="assets/trier.png" height="15" width="15"></button> </th>
       <th class="col-5 text-center">Description</th>
       <th class="col-2 text-center">Note</th>
     </tr>

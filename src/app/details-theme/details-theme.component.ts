@@ -35,4 +35,9 @@ export class DetailsThemeComponent implements OnInit {
     this.apiHelpMeBrokerService.addKeyWord(this.theme._idTheme,this._keyWord);
     this.ngOnInit()
   }
+
+  public deleteTheme(): void {
+    this.apiHelpMeBrokerService.deleteTheme(this.theme);
+    this.ngOnInit();
+  }
 }

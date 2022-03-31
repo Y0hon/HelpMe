@@ -13,6 +13,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class DetailsStudentComponent implements OnInit {
   student : Student = new Student();
+  trieAscendant: boolean = false;
   idStudent: string = "";
   listeThemes: Theme[]=[];
   notes: number[]=[];
@@ -30,13 +31,26 @@ export class DetailsStudentComponent implements OnInit {
 
   public deleteStudent(): void {
     this.apiHelpMeBrokerService.deleteStudent(this.student);
+    this.ngOnInit();
   }
 
   editStudent() {
     this.apiHelpMeBrokerService.editStudent(this.student);
+    this.ngOnInit();
   }
 
   addStudent() {
     this.apiHelpMeBrokerService.addStudent(this.student);
+  }
+
+  trierParTitre() {
+    if(!this.trieAscendant){
+      this.listeThemes.sort((themea, themeb) => themea._title.localeCompare(themeb._title));
+      this.trieAscendant=true;
+    }
+    else{
+      this.listeThemes.sort((themea, themeb) => themeb._title.localeCompare(themea._title));
+      this.trieAscendant=false;
+    }
   }
 }

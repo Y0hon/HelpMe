@@ -83,6 +83,13 @@ export class ApiHelpMeBrokerService {
     );
   }
 
+  public deleteTheme(theme: Theme) {
+    this.httpCLient.post<Theme>(this.url + "/deleteTheme", theme).subscribe(
+      (response ) => {console.log(response);}
+      , (error) => {console.log('Erreur supprimer thème');}
+    );
+  }
+
   public editStudent(student: Student){
     this.httpCLient.post<Student>(this.url + "/editStudent", student).subscribe(
       (response ) => {console.log(response);}
