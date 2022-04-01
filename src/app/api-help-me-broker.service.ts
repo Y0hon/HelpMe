@@ -103,16 +103,4 @@ export class ApiHelpMeBrokerService {
       , (error) => {console.log('Erreur modifier thème');}
     );
   }
-
-/*  public getNote(t: Theme, idStudent: string) : number {
-    let tabS: Student[]=[];
-    let s = new Student();
-    this.getRecommendations(t._idTheme).subscribe((listeE) => {tabS = listeE})
-    tabS.forEach(s =>{
-      if (s.id == idStudent){
-        return s.getLikes();
-      }
-    })
-    return -1;
-  }*/
 }
