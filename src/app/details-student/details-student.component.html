@@ -36,12 +36,14 @@
     </thead>
     <tbody>
     <ng-container *ngFor="let theme of this.listeThemes; index as i">
+      <ng-container *ngIf="theme._likes>0">
       <tr >
         <td class="text-center">{{i + 1}}</td>
         <td class="text-center"><button class="btn" routerLink="/detailsTheme/{{theme._idTheme}}">{{theme._title}}</button></td>
         <td class="text-center">{{theme._description}}</td>
         <td class="text-center">{{theme._likes}} <img src="assets/like.png" height="30" width="30" ></td>
       </tr>
+      </ng-container>
     </ng-container>
     </tbody>
   </table>
